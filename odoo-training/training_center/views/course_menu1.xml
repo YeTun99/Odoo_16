@@ -1,0 +1,12 @@
+<odoo>
+	<!-- Training App Menu -->
+	<menuitem id="menu_training1" name="Training Center" />
+	<!-- Action to open the Course list -->
+	<record id="action_training_course1" model="ir.actions.act_window">
+		<field name="name">Courses</field>
+		<field name="res_model">training_center.course</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<!-- Menu Item to open the course list -->
+	<menuitem id="menu_training_course1" name="Course" parent="menu_training1" action="action_training_course1"/>
+</odoo>

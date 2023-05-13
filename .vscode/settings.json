@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "${workspaceRoot}/env310/bin/python3",
+    "files.watcherExclude": {
+        "**/odoo/*/**": true
+      }
+}
