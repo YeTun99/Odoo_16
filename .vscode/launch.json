@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${workspaceRoot}/odoo/odoo-bin",
             "console": "integratedTerminal",
-            "args": ["--config","${workspaceRoot}/16.0.cfg"],
+            "args": ["--config","${workspaceRoot}/16.0.cfg","-u","training_center"],
 
         }
     ]

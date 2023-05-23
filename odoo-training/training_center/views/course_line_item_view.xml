@@ -5,5 +5,5 @@
 		<field name="view_mode">tree,form</field>
 	</record>
     
-    <menuitem id="menu_course_contents" name="Contents" parent="menu_training1" groups="training_center.course_group_manager" action="action_training_course_contents"/>
+    <menuitem id="menu_course_contents" name="Contents" parent="menu_training_course1" groups="training_center.course_group_manager" action="action_training_course_contents"/>
 </odoo>

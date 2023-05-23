@@ -1,0 +1,16 @@
+<odoo>
+    <record id="res_users_form_view_inherit_training_center" model="ir.ui.view">
+        <field name="name">res.users.view.form.inherit.training_center</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <!-- ref ka edit forrm view ka external id ko u  -->
+        <field name="arch" type="xml">
+        <!-- login form out ka position -->
+            <xpath expr="//field[@name='login']" position="after"> 
+                <group>
+                    <field name="training_center_company"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

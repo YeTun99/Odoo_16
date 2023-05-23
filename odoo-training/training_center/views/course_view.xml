@@ -6,6 +6,15 @@
 		<field name="model">training_center.course</field>
 		<field name="arch" type="xml">
 			<form string="Course">
+			<header>
+				<button name="action_do_cancel" type="object" string="Cancel" states="new,progress" groups="training_center.course_group_manager"/>
+				<button name="action_do_progress" type="object" string="Create" states="new"/>
+				<button name="action_do_complete" type="object" string="Complete" states="progress"/>
+				
+
+				<field name="state" widget="statusbar" statusbar_visible="new,progress,completed"/>
+
+			</header>
 				<sheet>
 					<group>
 						<group>
@@ -16,14 +25,20 @@
                             <field name="price"/>
                             <field name="active"/>
 							<field name="num_of_contents"/>
+							<field name="remarks"/>
+							<field name="supervisor_remarks"/>
+							<field name="state" invisible="True"/>
+
 						</group>
 						<group>
-							<field name="company_id" />
+							<field name="company_id" attrs="{'readonly':[('state','=','completed')]}" />
 							<field name="teacher_ids" widget="many2many_tags" />
 							<field name="cover_image" widget="image" />
                             <field name="start_date"/>
                             <field name="end_date"/>
 							<field name="country_id"/>
+							<field name="total_duration"/>
+							<field name="deadline_date"/>
 						</group>
 					</group>
                     <notebook>
@@ -46,12 +61,26 @@
 		</field>
 		<field name="model">training_center.course</field>
 		<field name="arch" type="xml">
-            <tree>
+            <tree decoration-muted="state in ['canceled']" decoration-primary="state=='completed'">
                 <field name="name"/>
+				<field name="state"/>
                 <field name="company_id"/>
                 <field name="course_level"/>
                 <field name="start_date"/>
             </tree>
         </field>
     </record>
+	<record id="course_serach_view" model='ir.ui.view'>
+		<field name="name">Course filters</field>
+		<field name="model">training_center.course</field>
+		<field name="arch" type="xml">
+			<search>
+			<field name="company_id"/>
+			<filter name="filter_course_level_basic" string="Basic" domain="[('course_level','=','basic')]"/>
+			<filter name="filter_course_level_advance" string="Advanced" domain="[('course_level','=','advanced')]"/>
+
+			</search>
+
+		</field>
+	</record>
 </odoo>

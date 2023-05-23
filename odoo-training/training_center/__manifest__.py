@@ -26,7 +26,7 @@
     'data': [
         'security/course_security.xml',
         'security/ir.model.access.csv',
-        'views/course_menu1.xml','views/course_view.xml','views/course_line_item_view.xml',
+        'views/course_menu1.xml','views/course_view.xml','views/course_line_item_view.xml','views/res.users.xml','views/course_enrollment.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
