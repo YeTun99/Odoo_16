@@ -8,5 +8,8 @@
 		<field name="view_mode">tree,form</field>
 	</record>
 	<!-- Menu Item to open the course list -->
+	<menuitem id="menu_training_course2" name="Courses" parent="menu_training_course1" action="action_training_course1"/>  
 	<menuitem id="menu_training_course1" name="Course" parent="menu_training1" action="action_training_course1"/>
+	
+
 </odoo>
