@@ -1,0 +1,53 @@
+<odoo>
+
+    <record id="action_course_enrollment" model="ir.actions.act_window">
+		<field name="name">Course Enrollment</field>
+		<field name="res_model">course_enrollment</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+    
+    
+    <record id="course_enrollment_tree_view"  model="ir.ui.view">
+        <field name="name">Course Enrollment Tree</field>
+        <field name="model">course_enrollment</field>
+        <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="course_id"/>
+            <field name="start_date"/>
+            <field name="course_start_date"/>
+         
+        </tree>
+        </field>
+    </record>
+
+    <record id="course_enrollment_form_view" model="ir.ui.view">
+        <field name="name">Course Enrollment Form</field>
+        <field name="model">course_enrollment</field>
+        <field name="arch" type="xml">
+        <sheet>
+            <form string="Course Enrollment">
+            <group>
+                <group>
+                   
+                    <field name="name"/>
+                    <field name="course_id"/>
+                    <field name="price"/>
+                    <field name="currency_id" invisible="True"/>
+                    <field name="total_amount"/>
+                </group>
+                <group>
+                    <field name="start_date"/>
+                    <field name="course_start_date"/>
+                    <field name='early_bird_end_date'/>
+                
+            
+                </group>
+            </group>
+            </form>
+        </sheet>
+        </field>
+    </record>
+    <menuitem id="menu_course_enrollment" name="Enrollment" parent="training_center.menu_training1"  action="action_course_enrollment"/>
+
+</odoo>

@@ -1,0 +1,24 @@
+<odoo>
+    <record id="course_form_view_inherit_enrollment" model="ir.ui.view">
+        <field name="name">course.view.form.inherit.enrollment</field>
+        <field name="model">training_center.course</field>
+        <field name="inherit_id" ref="training_center.course_form_view"/>
+        <!-- ref ka edit forrm view ka external id ko u  -->
+        <field name="arch" type="xml">
+        <!-- login form out ka position -->
+            <div name="button_box" position="inside">
+                <button name="action_enrollment"  class="oe_stat_button" icon="fa-address-card" type="object">
+                    <field name="num_of_students_enrolls" string="Enrollments" widget="statinfo"/>
+                </button>
+            </div>
+            <xpath expr="//field[@name='price']" position="after">
+            
+                <field name="discount" widget="percentage" />
+                <field name="early_bird_discount" widget="percentage" />
+                <field name="early_bird_End_Date"/>
+                
+            
+            </xpath>
+        </field>
+    </record>
+</odoo>

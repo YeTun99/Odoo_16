@@ -1,0 +1,33 @@
+<odoo>
+     <record id="course_member_tree_view"  model="ir.ui.view">
+        <field name="name">Member Tree</field>
+        <field name="model">training_members.course_member</field>
+        <field name="arch" type="xml">
+        <tree>
+            <field name="card_number"/>
+            <field name="name"/>
+            <field name="phone"/>
+            <field name="email"/>
+          
+            
+        </tree>
+        </field>
+    </record>
+
+    <record id="course_member_form_view" model="ir.ui.view">
+        <field name="name">Member Form</field>
+        <field name="model">training_members.course_member</field>
+        <field name="arch" type="xml">
+        <form string="Member">
+        <sheet>
+        <group>
+            <field name="card_number"/>
+            <field name="name"/>
+            <field name="phone"/> 
+            <field name="email"/>
+        </group>
+        </sheet>
+        </form>
+        </field>
+    </record>
+</odoo>

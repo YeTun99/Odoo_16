@@ -24,6 +24,8 @@ class Course(models.Model):
     #price helper
     currency_id = fields.Many2one("res.currency")
     price = fields.Monetary("Price","currency_id", groups="training_center.course_group_manager")
+  
+
     #Boolean
     active=fields.Boolean("Active",default=True)
     #Date Time Field
@@ -46,6 +48,8 @@ class Course(models.Model):
     
     deadline_date=fields.Date(string="Deadline Date", compute='_compute_deadline_date')
 
+    
+    
     @api.depends('course_items_ids.duration')
     def _compute_total_duration(self):
         for record in self:
@@ -62,6 +66,7 @@ class Course(models.Model):
     def _compute_num_of_contents(self):
         for course in self:
             course.num_of_contents=len(course.course_items_ids)
+
     @api.model
     def create(self,values):
         if  not self.user_has_groups("training_center.course_group_manager"):

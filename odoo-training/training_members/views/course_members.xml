@@ -1,0 +1,13 @@
+<odoo>
+
+    <record id="action_course_members" model="ir.actions.act_window">
+		<field name="name">Member</field>
+		<field name="res_model">training_members.course_member</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+    
+    
+   
+    <menuitem id="menu_course_member" name="Member" parent="training_center.menu_training1"  action="action_course_members"/>
+
+</odoo>
