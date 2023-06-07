@@ -1,0 +1,21 @@
+<odoo>
+    <!-- step  -->
+    <act_window id='action_all_customers' name='All Customers' res_model='res.partner' view_mode='tree,form' limit='20'/>
+    <menuitem id='menu_all_customers' parent='training_center.menu_training1' action='action_all_customers' sequence='10'/>
+    <record id='view_all_customers_tree_view' model='ir.ui.view'>
+        <field name='name'>All Customers</field>
+        <field name='model'>res.partner</field>
+        <field name='arch' type='xml'>
+            <tree>
+                <field name='name'/>
+                <field name='email'/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='action_all_customers_tree' model='ir.actions.act_window.view'>
+        <field name='act_window_id' ref='action_all_customers'/>
+        <field name='view_id' ref='view_all_customers_tree_view'/>
+        <field name='view_mode'>tree</field>
+    </record> 
+</odoo>
