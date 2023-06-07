@@ -28,7 +28,8 @@
         'views/course_members.xml',
         'views/views.xml',
         'views/templates.xml',
-        'views/course_members_view.xml'
+        'views/course_members_view.xml',
+        'views/partner_views.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

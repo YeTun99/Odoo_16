@@ -25,8 +25,16 @@
         <field name="name">Course Enrollment Form</field>
         <field name="model">course_enrollment</field>
         <field name="arch" type="xml">
+        <form string="Course Enrollment">
         <sheet>
-            <form string="Course Enrollment">
+            <field name='member_image' widget='image' class='oe_avatar'/>
+            <div class='oe_title'>
+                <label for='name'/>
+                <h1>
+                    <field name='name'/>
+                </h1>
+            </div>
+
             <group>
                 <group>
                    
@@ -44,8 +52,13 @@
             
                 </group>
             </group>
-            </form>
-        </sheet>
+            </sheet>
+            <div class='oe_chatter'>
+                <field name='message_follower_ids' widget='mail_followers'/>
+                <field name='activity_ids' widget='mail_activity'/>
+                <field name='message_ids' widget='mail_thread'/>
+            </div>
+        </form>
         </field>
     </record>
     <menuitem id="menu_course_enrollment" name="Enrollment" parent="training_center.menu_training1"  action="action_course_enrollment"/>

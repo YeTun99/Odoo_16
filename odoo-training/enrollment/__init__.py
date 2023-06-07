@@ -2,3 +2,4 @@
 
 from . import controllers
 from . import models
+from .wizard import enrollment_message_wizard

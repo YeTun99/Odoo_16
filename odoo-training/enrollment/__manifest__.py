@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['training_center'],
+    'depends': ['training_members','mail'],
 
     # always loaded
     'data': [
@@ -29,6 +29,7 @@
         'views/course_enrollment_view.xml',
         'views/course_inherit.xml',
         'views/templates.xml',
+        'wizard/enrollment_message_wizard.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
