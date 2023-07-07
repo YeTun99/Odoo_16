@@ -60,14 +60,6 @@ class HrDepartment(models.Model):
             elif rec.state == "check":
                 ap_approver_ids = rec.get_approver_limit_by_department().mapped("approver_ids")
                 rec.approver = True if self.env.user in ap_approver_ids else False
-                rec.approver_check = False         if rec.state == "submit":
-                ap_checker_ids = rec.get_approver_limit_by_department().mapped("ap_checker_ids")
-                rec.approver_check = True if self.env.user in ap_checker_ids else False
-                rec.approver = False
-                rec.final_approver = False
-            elif rec.state == "check":
-                ap_approver_ids = rec.get_approver_limit_by_department().mapped("approver_ids")
-                rec.approver = True if self.env.user in ap_approver_ids else False
                 rec.approver_check = False
                 rec.final_approver = False
             elif rec.state == "approver":
