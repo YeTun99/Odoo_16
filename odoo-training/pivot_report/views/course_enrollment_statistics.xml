@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="course_enrollment_statistics_action" model="ir.actions.act_window">
+            <field name="name">Enrollment Statistics</field>
+            <field name="res_model">course.enrollment.statistics</field>
+            <field name="view_mode">pivot</field>
+    </record>
+
+    <menuitem name="Statistics" id="course_enrollment_statistics_menu" parent="training_center.menu_training1" action="course_enrollment_statistics_action"/>
+    <!-- pivot View -->
+ 
+</odoo>

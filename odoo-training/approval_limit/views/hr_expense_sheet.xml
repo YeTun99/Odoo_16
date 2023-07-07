@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+        <record id="hr_expense_sheet_view_inherit" model="ir.ui.view">
+            <field name="name">hr.expense.sheet.view.inherit.form</field>
+            <field name="model">hr.expense.sheet</field>
+            <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_form"></field>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='employee_details']/field[@name='payment_mode']" position="after">
+                    <field name="approver_check" invisible="1"></field>
+                    <field name="approver" invisible="1"></field>
+                    <field name="final_approver" invisible="1"></field>
+                </xpath>
+                <button name="action_submit_sheet" position="after">
+                    <button name="action_check_sheet" type="object" string="Check" attrs="{'invisible':['|',('approver_check','=',False),('state','!=','submit')]}"></button>
+                </button>
+                
+
+                <button name="action_check_sheet" position="after">
+                    <button name="action_approve_sheet" type="object" 
+                    string="Approve" attrs="{'invisible':['|',('approver','=',False),('state','!=','check')]}"></button>
+                </button>
+
+                <button name="approve_expense_sheets" position="attributes">
+                    <attribute name="string">Final Approve</attribute>
+
+                    <attribute name="attrs">{'invisible':[('final_approver','=',False)]}</attribute>
+                </button>
+            </field>
+        </record>
+    </data>
+</odoo>

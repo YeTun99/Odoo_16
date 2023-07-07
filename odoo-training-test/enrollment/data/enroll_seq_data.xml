@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <record id='seq_enroll_id' model='ir.sequence'>
+            <field name='name'>Enroll Sequence</field>
+            <field name='code'>course_enrollment</field>
+            <field name='prefix'>EC-</field>
+        </record>
+    </data>
+</odoo>

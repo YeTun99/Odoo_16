@@ -17,6 +17,7 @@ class Course(models.Model):
     #Relational Fields
     company_id=fields.Many2one("res.partner",string="Company")
     teacher_ids=fields.Many2many("res.partner",string="Teacher")
+    
     course_items_ids=fields.One2many("training_center.course.line.item","course_id")
     country_id=fields.Many2one("res.country",string="Country",related="company_id.country_id")
     remarks=fields.Text("Manager Remarks")
@@ -49,11 +50,13 @@ class Course(models.Model):
     deadline_date=fields.Date(string="Deadline Date", compute='_compute_deadline_date')
 
     
+    def get_total_duration(self):
+        return sum(self.course_items_ids.mapped('duration'))
     
     @api.depends('course_items_ids.duration')
     def _compute_total_duration(self):
         for record in self:
-            record.total_duration=sum(record.course_items_ids.mapped('duration'))
+            record.total_duration=self.get_total_duration()
     
     @api.depends('start_date','total_duration')
     def _compute_deadline_date(self):

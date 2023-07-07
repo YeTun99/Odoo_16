@@ -5,12 +5,20 @@
     "version": "0.2.0",
     "configurations": [       
         {
-            "name": "odoo16",
+            "name": "training",
             "type": "python",
             "request": "launch",
             "program": "${workspaceRoot}/odoo/odoo-bin",
             "console": "integratedTerminal",
-            "args": ["--config","${workspaceRoot}/16.0.cfg","-u","training_center"],
+            "args": ["--config","${workspaceRoot}/16.0.cfg","-u","training_center","-u","trading_system","-u","approval_limit","-u","enrollment","--dev","xml"],
+
+        },{
+            "name": "gca",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceRoot}/odoo/odoo-bin",
+            "console": "integratedTerminal",
+            "args": ["--config","${workspaceRoot}/16.0-gca.cfg","-u","training_center","-u","trading_system","--dev","xml"],
 
         }
     ]

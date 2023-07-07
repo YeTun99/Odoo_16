@@ -1,0 +1,18 @@
+<odoo>
+    <record id="sale_order_form_view_inherit" model="ir.ui.view">
+        <field name="name">sale.order.view.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <!-- ref ka edit forrm view ka external id ko u  -->
+        <field name="arch" type="xml">
+        <!-- login form out ka position -->
+            <xpath expr="//field[@name='partner_id']" position="after"> 
+            
+                
+                    <field name="payment_method"  widget="radio"/>
+                
+            
+            </xpath>
+        </field>
+    </record>
+</odoo>

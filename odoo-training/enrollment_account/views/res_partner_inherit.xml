@@ -1,0 +1,18 @@
+<odoo>
+    <record id="res_partner_form_view_inherit" model="ir.ui.view">
+        <field name="name">res.partner.view.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <!-- ref ka edit forrm view ka external id ko u  -->
+        <field name="arch" type="xml">
+        <!-- login form out ka position -->
+            <xpath expr="//field[@name='vat']" position="after"> 
+            
+                <group>
+                    <field name="overdue" />
+                </group>
+            
+            </xpath>
+        </field>
+    </record>
+</odoo>

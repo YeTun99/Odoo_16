@@ -26,7 +26,13 @@
         <field name="model">course_enrollment</field>
         <field name="arch" type="xml">
         <form string="Course Enrollment">
-        <sheet>
+        	<header>
+				<button name="action_do_draft" type="object" string="Draft" states="canceled,confirm" />
+				<button name="action_do_confirm" type="object" string="Confirm" states="new"/>
+				<button name="action_do_canceled" type="object" string="Cancel" states="new"/>
+				<field name="state" widget="statusbar" statusbar_visible="new,comfirm"/>
+			</header>
+            <sheet>
             <field name='member_image' widget='image' class='oe_avatar'/>
             <div class='oe_title'>
                 <label for='name'/>
@@ -38,11 +44,12 @@
             <group>
                 <group>
                    
-                    <field name="name"/>
+                    <field name="member_id"/>
                     <field name="course_id"/>
                     <field name="price"/>
-                    <field name="currency_id" invisible="True"/>
+                    <field name="currency_id" />
                     <field name="total_amount"/>
+                    <field name="state" invisible="True"/>
                 </group>
                 <group>
                     <field name="start_date"/>
@@ -52,6 +59,16 @@
             
                 </group>
             </group>
+            <notebook>
+                    <page name="Course Enrollment">
+                            <field name="course_enroll">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="price"/>
+                                </tree>
+                            </field>
+                    </page>
+            </notebook>
             </sheet>
             <div class='oe_chatter'>
                 <field name='message_follower_ids' widget='mail_followers'/>

@@ -20,13 +20,14 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','stock'],
 
     # always loaded
     'data': [
         'security/course_security.xml',
         'security/ir.model.access.csv',
-        'views/course_menu1.xml','views/course_view.xml','views/course_line_item_view.xml','views/res.users.xml'
+        'views/course_menu1.xml','views/course_view.xml','views/course_line_item_view.xml','views/res.users.xml',
+        'reports/course_by_tc_report.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

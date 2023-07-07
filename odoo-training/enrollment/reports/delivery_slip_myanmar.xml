@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="delivery_slip_myanmar_report">
+    <t t-foreach="docs" t-as="o">
+		<t t-call="web.html_container">
+			<t t-call="web.external_layout">
+				<div class="page">
+					<div class="container">
+						<table class="table table-bordered">
+							<thead>
+								<tr class="text-center ">
+									<th rowspan="2">
+										အမျိုးအစား
+									</th>
+									<th rowspan="2">
+										ရေတွက်ပုံ
+									</th>
+									<th rowspan="2">
+										အရေအတွက်
+									</th>
+									<th rowspan="2">
+										မှတ်ချက်
+									</th>
+									<th colspan="5">
+										ကုန်လက်ခံရရှိမှု အခြေအနေ
+									</th>
+								</tr>
+								<tr class="text-center">
+									<th>
+										ကောင်း
+									</th>
+									<th>
+										ပျောက်
+									</th>
+									<th>
+										အိတ်ပေါက်
+									</th>
+									<th>
+										ရေစို
+									</th>
+									<th>
+										စုစုပေါင်း
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								
+								<t t-foreach="o.move_ids" t-as="line">
+									<tr>
+										<td >
+											<span t-field="line.product_id">
+                                            </span>
+										</td>
+										<td>
+											<span t-field="line.product_id.uom_id">
+                                            </span>
+										</td>
+										<td>
+											<span t-field="line.product_uom_qty">
+                                            </span>
+										</td>
+										<td>
+										</td>
+										<td>
+										</td>
+										<td>
+										</td>
+										<td>
+										</td>
+										<td>
+										</td>
+                                        <td>
+                                        </td>
+									</tr>
+								</t>
+								<tr>
+									<td colspan="9" class="text-center">
+										တစ်စုံတစ်ရာချို့ယွင်းချက်ရှိပါကအထက်ပါကုန်လက်ခံရရှိမှုအခြေအနေအတွင်မှတ်ချက်ရေးပေးပါရန်။
+									</td>
+								</tr>
+								<tr>
+									<td colspan="3">
+										<p>
+											လက်မှတ် -----------------
+										</p>
+										<p>
+											အမည်- <span t-field="o.env.user.name"></span>
+										</p>
+										<p>
+											ပြုစုသူ
+										</p>
+										<br/>
+											<br/>
+												<p>
+													လက်မှတ်-------------------
+												</p>
+												<p>
+													အမည်-
+												</p>
+												<p class="text-center">
+													ပစ္စည်းပြင်ပထုတ်ယူခွင့်စစ်ဆေးပြီး
+												</p>
+									</td>	
+									<td colspan="3">
+										<p>
+											လက်မှတ် -----------------
+										</p>
+										<p>
+											အမည်-
+										</p>
+										<p>
+											ဖုန်း-
+										</p>
+                                        <p>
+                                            ကားနံပါတ်-
+										</p>
+										
+											<br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            
+												                                            
+											<p >
+													ကုန်ပစ္စည်းလက်ခံသူ
+												</p>
+									</td>
+									<td colspan="3">
+                                        <p>
+											လက်မှတ် -----------------
+										</p>
+										<p>
+											အမည်-
+										</p>
+										<p>
+											ဖုန်း-
+										</p>
+                                        <p>
+                                            လိပ်စာ-
+										</p>
+										    <br/>
+											<br/>
+                                            <br/>
+                                            <br/>
+                                           
+                                            
+                                        <p>
+                                            တင်ပို့လက်ခံသူ ကုန်သည်
+                                        </p>
+									</td>
+										
+									<tr>
+											<td colspan="9" class="text-center">
+                                                ဖြန့်ဝေခြင်း ၁။ကုန်ပစ္စည်း ၂။ယာဥ်မှူး ၃။ငွေစာရင်း ၄။သိုလှောင်ရုံလက်ခံ
+											</td>
+									</tr>
+									
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</t>
+            </t>
+            </t>
+	</template>
+
+			<record id="action_delivery_slip_myanmar_report" model="ir.actions.report">
+				<field name="name">Delivery Slip Myanmar</field>
+				<field name="model">stock.picking</field>
+				<field name="report_type">qweb-pdf</field>
+				<field name="report_name">enrollment.delivery_slip_myanmar_report</field>
+			    <field name="binding_model_id" ref="stock.model_stock_picking"></field>
+				<field name="binding_type">report</field>
+			</record>
+	
+</odoo>

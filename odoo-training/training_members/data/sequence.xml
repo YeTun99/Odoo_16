@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <record id='seq_member_id' model='ir.sequence'>
+            <field name='name'>Member</field>
+            <field name='code'>training_members.course_member</field>
+            <field name='prefix'>00</field>
+        </record>
+    </data>
+</odoo>

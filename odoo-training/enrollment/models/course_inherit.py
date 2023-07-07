@@ -3,14 +3,11 @@ from odoo import models,fields,api
 class Course(models.Model):
     _inherit="training_center.course"
     enroll_ids=fields.One2many("course_enrollment","course_id")
-    
 
-    discount=fields.Float("Discount",default=0)
+    discount=fields.Float("Discount",default=0,store=True)
     early_bird_End_Date=fields.Date(default=lambda self: fields.Date.today(), string="Early Bird End Date")
     early_bird_discount=fields.Float("Early Bird Discount",default=0)
-   
-    
-       
+     
     #Compute field
     num_of_students_enrolls= fields.Integer(compute="_compute_num_of_enrollments")
 

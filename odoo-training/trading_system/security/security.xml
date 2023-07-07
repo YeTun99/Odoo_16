@@ -1,0 +1,52 @@
+<odoo>
+	<data>
+		<record id="user_warehouses_inventroy_overview" model="ir.rule">
+			<field name="name">
+                Warehouse-wise Inventory Overview
+			</field>
+			<!-- ir model file ka nay model ko u -->
+			<field name="model_id" ref="stock.model_stock_picking_type" />
+			<field name="domain_force">
+				['|',('warehouse_id','in',user.warehouse.ids),(len(user.warehouse.ids)== 0,'=',1)]
+			</field>
+			<field name="groups" eval="[(6,None,[ref('stock.group_stock_user')])]" />
+		</record>
+		
+        <record id="user_stock_move_trading" model="ir.rule">
+			<field name="name">
+                Stock Move
+			</field>
+			
+			<field name="model_id" ref="stock.model_stock_move" />
+			<field name="domain_force">
+				['|',('location_id','in',user.location_ids.ids),('location_dest_id','in',user.location_ids.ids)]
+			</field>
+			<field name="groups" eval="[(6,None,[ref('stock.group_stock_user')])]" />
+		</record>
+
+		<record id="user_stock_move_line" model="ir.rule">
+			<field name="name">	
+                Stock Move Line
+			</field>
+			
+			<field name="model_id" ref="stock.model_stock_move_line" />
+			<field name="domain_force">
+				['|',('location_id','in',user.location_ids.ids),('location_dest_id','in',user.location_ids.ids)]
+			</field>
+			<field name="groups" eval="[(6,None,[ref('stock.group_stock_user')])]" />
+		</record>
+
+		<record id="user_stock_picking" model="ir.rule">
+			<field name="name">	
+                Stock Picking
+			</field>
+			
+			<field name="model_id" ref="stock.model_stock_picking" />
+			<field name="domain_force">
+				['|',('location_id','in',user.location_ids.ids),('location_dest_id','in',user.location_ids.ids)]
+			</field>
+			<field name="groups" eval="[(6,None,[ref('stock.group_stock_user')])]" />
+		</record>
+        
+	</data>
+</odoo>

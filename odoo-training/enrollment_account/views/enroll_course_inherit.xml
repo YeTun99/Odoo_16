@@ -1,0 +1,36 @@
+<odoo>
+    <record id="acount_form_view_inherit_enrollment_account" model="ir.ui.view">
+        <field name="name">account.view.form.inherit.account</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+
+    <xpath expr="//field[@name='partner_id']" position="after">
+            
+        <field name='enroll_ref'/>
+            
+    </xpath>
+    <!-- <xpath expr="//form/sheet/notebook/page/field[@name='invoice_line_ids']/tree/field[@name='product_id']" position="attributes">
+        <attribute name="domain">['&amp;',('sale_ok','=',True),'|',('type','=','product'),('allow_discount','=',True)]</attribute>
+    </xpath> -->
+     <xpath expr="//form/sheet/notebook/page/field[@name='invoice_line_ids']/tree/field[@name='quantity']" position="after">
+        <field name="weight"/>
+    </xpath>
+
+    <xpath expr="//form" position="attributes">
+        <attribute name="duplicate">0</attribute>
+    </xpath>
+    <xpath expr="//field[@name='invoice_incoterm_id']" position="attributes">
+        <attribute name="readonly">True</attribute>
+    </xpath>
+    <xpath expr="//field[@name='fiscal_position_id']" position="attributes">
+        <attribute name="invisible">True</attribute>
+    </xpath>
+    <xpath expr="//button[@name='action_post'][2]" position="attributes">
+        <attribute name="groups">account.group_account_manager</attribute>
+    </xpath>
+    <button name="preview_invoice" position="replace"/>
+    </field>
+    </record>
+
+</odoo>

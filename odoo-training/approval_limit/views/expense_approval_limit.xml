@@ -1,0 +1,30 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="expense_approval_limit">
+      <field name="name">expense approval limit list</field>
+      <field name="model">expense.approval.limit</field>
+      <field name="arch" type="xml">
+        <tree editable="top">
+          <field name="department_id"/>
+          <field name="ap_checker_ids" widget="many2many_tags"/>
+          
+          <field name="approver_ids" widget="many2many_tags"></field>
+          <field name="final_approver_ids" widget="many2many_tags"></field>
+          <field name="expense_price_limit" />
+          <field name="currency_id"></field>
+        </tree>
+      </field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="expense_approval_limit_window">
+      <field name="name">Expense Approval Limit</field>
+      <field name="res_model">expense.approval.limit</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Approval Limit" id="menu_expense_approval_limit_act" action="expense_approval_limit_window" 
+    parent="hr_expense.menu_hr_expense_configuration"/>
+</data>
+</odoo>
