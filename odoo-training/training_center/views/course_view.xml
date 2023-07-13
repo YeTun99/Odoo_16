@@ -85,4 +85,30 @@
 
 		</field>
 	</record>
+	
+
+	<record id="action_training_course_advanced_type" model="ir.actions.act_window">
+        <field name="name">Advanced</field>
+        <field name="res_model">training_center.course</field>
+        <field name="view_mode">tree,form</field>
+
+        <field name="view_id" ref="course_tree_view"/>
+        <field name="domain">[('course_level','=','advanced')]</field>
+        <field name="context">{'default_course_level':'advanced','default_descr':'advanced'}</field>
+    </record>
+
+    <record id="action_training_course_basic_type" model="ir.actions.act_window">
+        <field name="name">Basic</field>
+        <field name="res_model">training_center.course</field>
+        <field name="view_mode">tree,form</field>
+
+        <field name="view_id" ref="course_tree_view"/>
+        <field name="domain">[('course_level','=','basic')]</field>
+        <field name="context">{'default_course_level':'basic','default_descr':'basic'}</field>
+    </record>
+
+    <menuitem id="menu_training_course_advanced" name="Advanced" parent="menu_training_course1" action="action_training_course_advanced_type" />
+
+    <menuitem id="menu_training_course_basic" name="Basic" parent="menu_training_course1" action="action_training_course_basic_type" />
+
 </odoo>

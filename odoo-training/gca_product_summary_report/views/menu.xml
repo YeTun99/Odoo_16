@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+        <!-- transition.report.wizard form view -->
+        <record id="transition_report_wizard" model="ir.ui.view">
+            <field name="name">summary.report.wizard.view.form</field>
+            <field name="model">summary.report.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Hello World">
+                    <group >
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                         <field name="location_ids" widget="many2many_tags" 
+                        domain="[('usage', 'in', ['internal','transit'])]"
+                        />
+                        <field name="product_ids" widget="many2many_tags" />
+                    </group>
+		            
+
+                    <footer>
+                        <button name="print_report_xls" string="Print (XLS)" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="summary_report_wizard_action" model="ir.actions.act_window">
+            <field name="name">Product Summary Report</field>
+            <field name="res_model">summary.report.wizard</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="transition_report_wizard" />
+            <field name="target">new</field>
+        </record>
+
+        <menuitem 
+            id="product_summary_report_menu_act" 
+            name="Stock Ledger Summary" 
+            parent="stock.menu_warehouse_report" 
+            action="summary_report_wizard_action" 
+            sequence="151"
+            groups="stock.group_stock_manager"/>
+    </data>
+</odoo>

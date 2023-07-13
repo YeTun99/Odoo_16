@@ -100,4 +100,8 @@ class Course(models.Model):
     
     def action_do_progress(self):
         return self.write({"state":"progress"})
-    
+    #SQL Constraints
+    _sql_constraints=[
+        ('course_name_unique','unique(name)','Course name must be unique'),
+        ('course_positive_price','CHECK(price>=0.0)','Price should be positive')
+    ]

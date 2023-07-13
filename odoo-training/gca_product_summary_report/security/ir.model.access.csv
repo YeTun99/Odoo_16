@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_summary_report_wizard,gca_product_summary_report.summary_report_wizard,model_summary_report_wizard,,1,1,1,1
+access_stock_report_helper_summary,gca_product_summary_report.stock_report_helper_summary,model_stock_report_helper_summary,,1,1,1,1
